@@ -1,6 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter_toolkit/route/observer.dart';
 
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
@@ -25,6 +24,7 @@ enum Route {
 MaterialApp get namedApp => MaterialApp(
       initialRoute: Route.root.routeName,
       navigatorKey: navigatorKey,
+      navigatorObservers: [GlobalObserver.instance],
       routes: Route.values.asNameMap().map(
             (key, value) => MapEntry(
               '/$key',
@@ -49,11 +49,11 @@ extension on Route {
     Navigator.of(context).popUntil((route) => route.settings.name == routeName);
   }
 
-  void offNamed(){
+  void offNamed() {
     Navigator.of(context).popAndPushNamed(routeName);
   }
 
-  // void delete(){
-  //   Navigator.of(context).removeRoute(route)
-  // }
+// void delete(){
+//   Navigator.of(context).removeRoute(route)
+// }
 }
