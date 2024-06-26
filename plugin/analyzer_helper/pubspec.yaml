@@ -1,0 +1,31 @@
+name: analyzer_x
+description: A new Flutter project.
+version: 0.0.1
+homepage:
+
+environment:
+  sdk: '>=3.3.1 <4.0.0'
+  flutter: ">=2.5.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  plugin_platform_interface: ^2.1.8
+  intl: ^0.18.1
+  http: 1.2.1
+  #图片处理相关
+  image: ^4.0.17
+  flutter_image_compress: 1.1.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+  #代码自动化生成相关
+  analyzer: ^6.2.0 #语法树解析
+  dart_style: ^2.3.4 #代码自动格式化
+  pub_semver: ^2.1.4
+  #dart run相关
+  build: ^2.4.1
+  build_runner: ^2.4.7
+

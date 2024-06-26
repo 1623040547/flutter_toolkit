@@ -1,0 +1,7 @@
+builders:
+  myBuilder:
+    import: "package:analyzer_x/application/code_gen/auto_build/builder.dart"
+    builder_factories: [ "myBuilder" ]
+    build_extensions: { ".dart": [ ".g.part" ] }
+    auto_apply: root_package
+    build_to: source
