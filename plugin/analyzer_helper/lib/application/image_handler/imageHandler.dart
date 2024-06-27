@@ -1,10 +1,11 @@
 import 'dart:io';
+
 import 'package:analyzer_x/application/gitAnalyzer.dart';
-import 'package:analyzer_x/base/analyzer.dart';
-import 'package:dart_style/dart_style.dart';
 import 'package:analyzer_x/base/base.dart';
+import 'package:dart_style/dart_style.dart';
 import 'package:flutter_image_compress/flutter_image_compress.dart';
 import 'package:image/image.dart';
+
 import '../../getter/imageClassGetter.dart';
 import '../../path/package.dart';
 
@@ -55,6 +56,7 @@ class ImageHandler {
           $baseNameDefine
         }
         """);
+      PackageConfig.clear();
       start();
       return;
     }
@@ -115,11 +117,11 @@ class ImageHandler {
 
     DartFormatter formatter = DartFormatter(indent: 0);
     String proto = File(target.filePath).readAsStringSync();
-    proto = formatter.format(proto);
+    String newProto = formatter.format(proto);
     for (var e in sources) {
       String slice =
           """static const String ${e.imageName} = '\$$imageBasePathName/${e.imageName}.${e.tailFix}';""";
-      if (!proto.contains(slice)) {
+      if (!newProto.contains(slice)) {
         sourceIndex += slice;
       }
     }

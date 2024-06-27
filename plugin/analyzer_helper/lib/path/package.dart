@@ -22,6 +22,10 @@ class PackageConfig {
     }
   }
 
+  static void clear() {
+    _files.clear();
+  }
+
   ///获取主项目路径，
   ///通过调用[Platform.script]获取程序执行入口的路径，
   ///从根路径开始逐步访问，找到第一个包含[package_config.json]文件的文件夹，将此作为主进程路径
